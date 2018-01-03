@@ -20,11 +20,15 @@ Before to use source one needs to install [Anaconda](https://conda.io) and [Git]
 
 When [Anaconda](https://conda.io) already installed clone repository and create an environment using next commands:
 
+```sh
     git clone https://github.com/webdizz/handson.ai.git
     cd handson.ai # change directory to clone one
     conda env create # create conda environment from environment.yml file
     source activate handson.ai # activation of environment
+```
 
 Open [Jupyter](https://github.com/jupyter/jupyter):
 
+```sh
     jupyter notebook # will open browser at http://localhost:8888
+```
