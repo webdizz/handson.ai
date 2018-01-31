@@ -33,3 +33,10 @@ Open [Jupyter](https://github.com/jupyter/jupyter):
 ```sh
     jupyter notebook # will open browser at http://localhost:8888
 ```
+
+On remote server we can start it using next command:
+
+```sh
+    nohup jupyter notebook --no-browser --ip=`hostname -I` &
+    cat nohup.out # to obtain token for later authentication, for example,  http://localhost:8888/?token=5c78b5f97274301d71615d05a59660db07307498766758e0
+```
