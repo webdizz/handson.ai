@@ -25,7 +25,6 @@ When [Anaconda](https://conda.io) already installed clone repository and create 
     cd handson.ai # change directory to clone one
     conda env create # create conda environment from environment.yml file
     source activate handson.ai # activation of environment
-    conda install -c conda-forge jupyter_contrib_nbextensions  # to install  additional extensions for Jupyter Notebook as a workaround because currently there is an issue with conda based installation
 ```
 
 Open [Jupyter](https://github.com/jupyter/jupyter):
