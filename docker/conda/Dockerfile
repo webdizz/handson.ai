@@ -1,5 +1,10 @@
 FROM nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
 
+ENV LANGUAGE en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV PYTHONIOENCODING UTF-8
+
 RUN apt-get update \
 	&& apt-get install -y wget bzip2 ca-certificates libglib2.0-0 libxext6 libsm6 libxrender1 \
 	&& apt-get install -y libgomp1 vim
@@ -15,10 +20,15 @@ ENV PATH /opt/conda/bin:$PATH
 COPY ./environment.yml /environment.yml
 
 RUN conda env create -f /environment.yml 
-RUN mkdir -p /opt/notebooks
+
+RUN groupadd appuser \
+	&& useradd --create-home -r --shell=/bin/bash -g appuser appuser \
+	&& mkdir -p /opt/notebooks \
+	&& chown appuser:appuser /opt/notebooks
 
 VOLUME "/opt/notebooks"
 
+USER appuser
 CMD ["/opt/conda/envs/handson.ai/bin/jupyter", "notebook", "--notebook-dir=/opt/notebooks", "--ip='*'", "--port=8888", "--no-browser"]
 
 EXPOSE 8888
