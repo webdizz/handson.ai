@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  conda:
+    image: webdizz/handson.ai
+    container_name: conda
+    expose:
+     - 8888
+    volumes:
+     - ./:/opt/notebooks
+    environment:
+     - VIRTUAL_HOST=dev.handson.ai
+     - VIRTUAL_PORT=8888
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
