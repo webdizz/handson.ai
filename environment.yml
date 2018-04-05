@@ -19,6 +19,7 @@ dependencies:
      # for Jupyter
     - rise #=5.1.*
     - jupyter_contrib_nbextensions #=0.3.3
+    - nltk
     - pip:
         # for VS code
         - pylint #==1.8.*
