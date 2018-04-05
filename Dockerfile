@@ -7,8 +7,8 @@ ENV PYTHONIOENCODING UTF-8
 
 RUN apt-get update \
 	&& apt-get install -y wget bzip2 ca-certificates libglib2.0-0 libxext6 libsm6 libxrender1 \
-	&& apt-get install -y libgomp1 vim
-RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh \
+	&& apt-get install -y libgomp1 vim \
+	&& echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh \
 	&& wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh \
 	&& /bin/bash ~/miniconda.sh -b -p /opt/conda \
 	&& rm ~/miniconda.sh \
@@ -19,9 +19,8 @@ ENV PATH /opt/conda/bin:$PATH
 
 COPY ./environment.yml /environment.yml
 
-RUN conda env create -f /environment.yml 
-
-RUN groupadd appuser \
+RUN conda env create -f /environment.yml  \
+	&& groupadd appuser \
 	&& useradd --create-home -r --shell=/bin/bash -g appuser appuser \
 	&& mkdir -p /opt/notebooks \
 	&& chown appuser:appuser /opt/notebooks \
