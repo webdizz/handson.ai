@@ -24,7 +24,8 @@ RUN conda env create -f /environment.yml
 RUN groupadd appuser \
 	&& useradd --create-home -r --shell=/bin/bash -g appuser appuser \
 	&& mkdir -p /opt/notebooks \
-	&& chown appuser:appuser /opt/notebooks
+	&& chown appuser:appuser /opt/notebooks \
+	&& chown -R appuser:appuser /opt/conda/envs 
 
 VOLUME "/opt/notebooks"
 
