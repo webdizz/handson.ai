@@ -20,7 +20,7 @@ ENV PATH /opt/conda/bin:$PATH
 COPY ./environment.yml /environment.yml
 
 RUN conda env create -f /environment.yml  \
-	&& conda clean \
+	&& conda clean --all -y \
 	&& groupadd appuser \
 	&& useradd --create-home -r --shell=/bin/bash -g appuser appuser \
 	&& mkdir -p /opt/notebooks \
