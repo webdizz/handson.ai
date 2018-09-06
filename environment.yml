@@ -26,6 +26,8 @@ dependencies:
         - pylint #==1.8.*
         - autopep8 #==1.3.*
         # for Pytorch
-        - pytoune
+        - fastai
+        - skorch
+        - livelossplot
         # for NLP
         - bs4
