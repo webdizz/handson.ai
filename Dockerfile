@@ -30,6 +30,6 @@ RUN conda env create -f /environment.yml  \
 VOLUME "/opt/notebooks"
 
 USER appuser
-CMD ["/opt/conda/envs/handson.ai/bin/jupyter", "notebook", "--notebook-dir=/opt/notebooks", "--ip='*'", "--port=8888", "--no-browser"]
+CMD ["/opt/conda/envs/handson.ai/bin/jupyter", "notebook", "--notebook-dir=/opt/notebooks", "--ip='0.0.0.0'", "--port=8888", "--no-browser"]
 
 EXPOSE 8888
