@@ -1,4 +1,5 @@
-FROM nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
+#FROM nvidia/cuda:9.2-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:10.0-cudnn7-runtime-ubuntu18.04
 
 ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
